@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cognitive Reflection in Software Verification and Testing</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="generator" content="pandoc" />
+
+
+
+  <meta name="date" content="2023-05-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <base target="_blank">
+
+  <script type="text/javascript">
+    var SLIDE_CONFIG = {
+      // Slide settings
+      settings: {
+                title: 'Cognitive Reflection in Software Verification and Testing',
+                        useBuilds: true,
+        usePrettify: true,
+        enableSlideAreas: true,
+        enableTouch: true,
+                      },
+
+      // Author information
+      presenters: [
+            {
+        name:  'Kevin Buffardi' ,
+        company: '',
+        gplus: '',
+        twitter: '',
+        www: '',
+        github: ''
+      },
+            ]
+    };
+  </script>
+
+  <script src="index_files/header-attrs-2.20/header-attrs.js"></script>
+  <link href="index_files/ioslides-13.5.1/fonts/fonts.css" rel="stylesheet" />
+  <link href="index_files/ioslides-13.5.1/theme/css/default.css" rel="stylesheet" />
+  <link href="index_files/ioslides-13.5.1/theme/css/phone.css" rel="stylesheet" />
+  <script src="index_files/ioslides-13.5.1/js/modernizr.custom.45394.js"></script>
+  <script src="index_files/ioslides-13.5.1/js/prettify/prettify.js"></script>
+  <script src="index_files/ioslides-13.5.1/js/prettify/lang-r.js"></script>
+  <script src="index_files/ioslides-13.5.1/js/prettify/lang-yaml.js"></script>
+  <script src="index_files/ioslides-13.5.1/js/hammer.js"></script>
+  <script src="index_files/ioslides-13.5.1/js/slide-controller.js"></script>
+  <script src="index_files/ioslides-13.5.1/js/slide-deck.js"></script>
+
+  <style type="text/css">
+
+    b, strong {
+      font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    summary {
+      display: list-item;
+    }
+
+    details > summary > p:only-child {
+      display: inline;
+    }
+
+    slides > slide {
+      -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .auto-fadein {
+      -webkit-transition: opacity 0.6s ease-in;
+      -webkit-transition-delay: 0.4s;
+      -moz-transition: opacity 0.6s ease-in 0.4s;
+      -o-transition: opacity 0.6s ease-in 0.4s;
+      transition: opacity 0.6s ease-in 0.4s;
+      opacity: 0;
+    }
+/* https://github.com/ropensci/plotly/pull/524#issuecomment-468142578 */
+slide:not(.current) .plotly.html-widget{
+  display: block;
+}
+
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+            
+  </style>
+
+
+</head>
+
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="title-slide segue nobackground">
+        <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+            <p style="margin-top: 6px; margin-left: -2px;">May 17, 2023</p>
+          </hgroup>
+  </slide>
+
+<slide class=""><hgroup><h2>Presentation</h2></hgroup><article  id="presentation">
+
+<p>Presented at the <a href='https://conf.researchr.org/home/icse-2023' title=''>International Conference on Software Engineering</a> in Melbourne, Australia and published in proceedings.</p>
+
+<p>This presentation is accessible at <a href='https://learnbyfailure.com/CodeVid/' title=''>learnbyfailure.com/CognitiveReflection</a> and its source is available on <a href='https://github.com/kbuffardi/CognitiveReflection/' title=''>GitHub</a>.</p>
+
+</article></slide><slide class=""><hgroup><h2>Thinking Fast, and Slow</h2></hgroup><article  id="thinking-fast-and-slow">
+
+</article></slide><slide class=""><hgroup><h2>Behavioral Economics</h2></hgroup><article  id="behavioral-economics">
+
+<p>The <strong>Cognitive Reflection Test</strong> (<a href='https://doi.org/10.1257%2F089533005775196732' title=''>Frederick 2005</a>) was motivated by Tversky and Kahneman’s research that lead to a Nobel Prize in Economics. They identified how consumers do not act in their rational best interests because of cognitive biases.</p>
+
+<img src='kahneman.jpg' title='fig:'/><p class='caption'>Daniel Kahneman, Nobel Prize winner and best-selling author</p>
+
+<p>Photo courtesy of Proximus.be</p>
+
+<p>In Kahneman’s best-selling book <em>Thinking, Fast and Slow</em> he described our brain’s two systems of decision-making:</p>
+
+<ul>
+<li><strong>System 1</strong> is fast and reflexive and particularly susceptible to our emotions and intuitions</li>
+<li><strong>System 2</strong> is slower, deliberate, and utilizes conscious calculations and reasoning</li>
+</ul>
+
+<p>The <strong>Cognitive Reflection Test</strong> is a proxy for how likely an individual is to inhibit System 1 and demonstrate <strong>Cognitive Reflection</strong> (using System 2). It is inversely correlated with:</p>
+
+<ul>
+<li>Gambler’s fallacy</li>
+<li>Sunk cost fallacy</li>
+</ul>
+
+<p><strong>In what ways might &ldquo;Cognitive Reflection&rdquo; play a role in software engineering?</strong></p>
+
+</article></slide><slide class=""><hgroup><h2>Inspecting Code</h2></hgroup><article  id="inspecting-code">
+
+<p>Does this function produce the described behavior?</p>
+
+<img src='isPalindrome.png' title='fig:'/><p class='caption'>isPalindrome function</p>
+
+<p>Does this function produce the described behavior?</p>
+
+<img src='sortDescending.png' title='fig:'/><p class='caption'>sortDescending function</p>
+
+</article></slide><slide class=""><hgroup><h2>Testing</h2></hgroup><article  id="testing">
+
+<p><strong>Test outcomes vs. Implementation</strong></p>
+
+<table>
+
+<thead>
+
+<tr class="header">
+
+<th style="text-align: right;">
+
+</th>
+
+<th style="text-align: right;">
+
+Fail
+
+</th>
+
+<th style="text-align: right;">
+
+Pass
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr class="odd">
+
+<td style="text-align: right;">
+
+Working
+
+</td>
+
+<td style="text-align: right;">
+
+🤨
+
+</td>
+
+<td style="text-align: right;">
+
+🙌
+
+</td>
+
+</tr>
+
+<tr class="even">
+
+<td style="text-align: right;">
+
+Buggy
+
+</td>
+
+<td style="text-align: right;">
+
+🧐
+
+</td>
+
+<td style="text-align: right;">
+
+🪳
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<img src='accuracy-components.png' title='fig:'/><p class='caption'>Test accuracy</p>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Results</h2></hgroup><article  id="results">
+
+</article></slide><slide class=""><hgroup><h2>CRT vs Inspection</h2></hgroup><article  id="crt-vs-inspection">
+
+<ul>
+<li>CRT was <strong>not a significant predictor</strong> (p=0.329) of students’ <strong>affirmation of acceptable code</strong>.</li>
+<li>CRT was a <strong>significant predictor</strong> of students rejecting defective code (p&lt;0.0001) with the log odds of <strong>correctly rejecting the defective code</strong> increasing by 2.94 (95% CI 1.56-4.50).
+
+<ul>
+<li>When considering only students who proposed cases that caused a defect, we found that <strong>CRT was a significant predictor</strong> (p&lt;0.001) of students <strong>identifying a defective case</strong> with the log odds of doing so increasing by 2.37 (95% CI 1.05-3.86)</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>CRT vs Testing</h2></hgroup><article  id="crt-vs-testing">
+
+<ul>
+<li>CRT was <strong>not correlated with test accuracy</strong> (ρ=0.940, p=0.008).
+
+<ul>
+<li>Test effectiveness (M=0.66, sd=0.27) was <strong>not correlated with CRT</strong> (ρ=0.140, p=0.159)</li>
+<li>Test affirmation (M=0.76, sd=0.17) was <strong>not correlated with CRT</strong> (ρ= -0.199, p=0.045)</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Conclusions</h2></hgroup><article  id="conclusions">
+
+<p><strong>How would you interpret the results?</strong></p>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Full Paper</h2></hgroup><article  id="full-paper">
+
+<p>The full paper will be available soon.</p></article></slide>
+
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!-- map slide visiblity events into shiny -->
+<script>
+  (function() {
+    if (window.jQuery) {
+       window.jQuery(document).on('slideleave', function(e) {
+         window.jQuery(e.target).trigger('hidden');
+      });
+       window.jQuery(document).on('slideenter', function(e) {
+         window.jQuery(e.target).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
