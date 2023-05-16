@@ -17,37 +17,46 @@ knitr::opts_chunk$set(echo = FALSE)
         
 ## Presentation
 
-Presented at the [International Conference on Software Engineering](https://conf.researchr.org/home/icse-2023) in Melbourne, Australia and published in proceedings.
+Presented at the [International Conference on Software Engineering](https://conf.researchr.org/home/icse-2023) in Melbourne, Australia and published in the proceedings.
 
-This presentation is accessible at [learnbyfailure.com/CognitiveReflection](https://learnbyfailure.com/CodeVid/) 
+This presentation is accessible at [learnbyfailure.com/CognitiveReflection](https://learnbyfailure.com/CognitiveReflection/) 
 and its source is available on [GitHub](https://github.com/kbuffardi/CognitiveReflection/).
 
-## Thinking Fast, and Slow
+## Thinking, Fast and Slow
 
-## Behavioral Economics
+<div class="columns-2">
+  
+  ```{r, out.width = "450px"}
+  knitr::include_graphics("kahneman.jpg")
+  ```
+  <sub>Photo courtesy of Proximus.be</sub>
 
-The **Cognitive Reflection Test** ([Frederick
-2005](https://doi.org/10.1257%2F089533005775196732)) was motivated by
-Tversky and Kahneman’s research that lead to a Nobel Prize in Economics.
-They identified how consumers do not act in their rational best
-interests because of cognitive biases.
-
-![Daniel Kahneman, Nobel Prize winner and best-selling
-author](kahneman.jpg)
-
-Photo courtesy of Proximus.be
-
-In Kahneman’s best-selling book *Thinking, Fast and Slow* he described
+  Kahneman’s best-selling book described
 our brain’s two systems of decision-making:
 
 -   **System 1** is fast and reflexive and particularly susceptible to
     our emotions and intuitions
 -   **System 2** is slower, deliberate, and utilizes conscious
     calculations and reasoning
+</div>
 
-The **Cognitive Reflection Test** is a proxy for how likely an
-individual is to inhibit System 1 and demonstrate **Cognitive
-Reflection** (using System 2). It is inversely correlated with:
+## Cognitive Reflection Test
+
+([Frederick
+2005](https://doi.org/10.1257%2F089533005775196732)) was motivated by
+Tversky and Kahneman’s *Nobel Prize in Economics*-winning research that
+identified how consumers do not act in their rational best
+interests because of cognitive biases.
+
+The **Cognitive Reflection Test (CRT)** is a proxy for how proficient an
+individual is at *inhibiting System 1* and demonstrating **Cognitive
+Reflection** (using System 2). CRT includes "trick" questions like:
+
+**"A bat and a ball cost \$1.10 in total. The bat costs \$1.00 more than the ball. How much does the ball cost?"**
+
+## Cognitive Reflection Test
+
+In behavioral economics, CRT was found as inversely correlated with:
 
 -   Gambler’s fallacy
 -   Sunk cost fallacy
@@ -55,49 +64,53 @@ Reflection** (using System 2). It is inversely correlated with:
 **In what ways might “Cognitive Reflection” play a role in software
 engineering?**
 
+Perhaps in verifying code?
+
+- Code Review
+- Testing
+
+
 ## Inspecting Code
 
 Does this function produce the described behavior?
 
-![isPalindrome function](isPalindrome.png)
+```{r, out.width = "580px"}
+knitr::include_graphics("isPalindrome.png")
+```
+
+## Inspecting Code
 
 Does this function produce the described behavior?
 
-![sortDescending function](sortDescending.png)
+```{r, out.width = "580px"}
+knitr::include_graphics("sortDescending.png")
+```
 
-## Testing
+## Unit Testing Exam
 
-**Test outcomes vs. Implementation**
+- Following a 3-week module on unit testing
+- Exam to test and implement a class
+- Class interface and specification provided
+- Classified each implementation as **acceptable** or **buggy**
+- Ran each student's tests against each implementation
+- Analyzed test accuracy for each student
 
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: right;"></th>
-<th style="text-align: right;">Fail</th>
-<th style="text-align: right;">Pass</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">Working</td>
-<td style="text-align: right;">🤨</td>
-<td style="text-align: right;">🙌</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Buggy</td>
-<td style="text-align: right;">🧐</td>
-<td style="text-align: right;">🪳</td>
-</tr>
-</tbody>
-</table>
+```
+Accuracy = 
+  (True Positives + True Negatives) /
+  (True Positives + True Negatives + False Positives + False Negatives)
+```
+## Unit Testing Exam - Accuracy
 
-![Test accuracy](accuracy-components.png)
+  ```{r, out.width = "900px"}
+  knitr::include_graphics("accuracy-components.png")
+  ```
 
 # Results
 
 ## CRT vs Inspection
 
--   CRT was **not a significant predictor** (p=0.329) of students’
+-   CRT was **not a significant predictor** (p=0.329) of students’ (n=102)
     **affirmation of acceptable code**.
 -   CRT was a **significant predictor** of students rejecting defective
     code (p&lt;0.0001) with the log odds of **correctly rejecting the
@@ -115,10 +128,28 @@ Does this function produce the described behavior?
     -   Test affirmation (M=0.76, sd=0.17) was **not correlated with
         CRT** (ρ= -0.199, p=0.045)
 
+## Threats to Validity
+
+- Potential previous exposure to CRT
+- Was the phenomenon particular to the coding problems given?
+
+**Replication Study**
+
+- Replaced CRT with similar (but newer, less common) variants (Thomson \& Oppenheimer 2016) and (Primi 2016)
+- Adopted new Unit Testing Exam and new code inspection question
+- Studied students (n=38) in following term
+
+## Replication Results
+
+- **Significant, positive correlation** between alternate-CRT and **manual verification** (ρ=0.478, p<0.01)
+    - **Significant regression** equation for **predicting rejection of buggy implementation**:
+    `-0.3138 + 1.0239 x alt-CRT score` (F(1,36)=9.106,p<.01), with an R^2 of 0.1797
+    - Not a significant predictor of affirmation alone (p=0.729).
+- *No correlation* between alternate-CRT and *test accuracy* (ρ=0.113, p=0.498).
+
 ## Conclusions
 
+- Cognitive Reflection has a **moderately positive correlation with manually identifying bugs in code**
+- Cognitive Reflection *not associated with unit testing accuracy*
+
 **How would you interpret the results?**
-
-# Full Paper
-
-The full paper will be available soon.

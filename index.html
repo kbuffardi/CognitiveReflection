@@ -119,28 +119,33 @@ slide:not(.current) .plotly.html-widget{
 
 <slide class=""><hgroup><h2>Presentation</h2></hgroup><article  id="presentation">
 
-<p>Presented at the <a href='https://conf.researchr.org/home/icse-2023' title=''>International Conference on Software Engineering</a> in Melbourne, Australia and published in proceedings.</p>
+<p>Presented at the <a href='https://conf.researchr.org/home/icse-2023' title=''>International Conference on Software Engineering</a> in Melbourne, Australia and published in the proceedings.</p>
 
-<p>This presentation is accessible at <a href='https://learnbyfailure.com/CodeVid/' title=''>learnbyfailure.com/CognitiveReflection</a> and its source is available on <a href='https://github.com/kbuffardi/CognitiveReflection/' title=''>GitHub</a>.</p>
+<p>This presentation is accessible at <a href='https://learnbyfailure.com/CognitiveReflection/' title=''>learnbyfailure.com/CognitiveReflection</a> and its source is available on <a href='https://github.com/kbuffardi/CognitiveReflection/' title=''>GitHub</a>.</p>
 
-</article></slide><slide class=""><hgroup><h2>Thinking Fast, and Slow</h2></hgroup><article  id="thinking-fast-and-slow">
+</article></slide><slide class=""><hgroup><h2>Thinking, Fast and Slow</h2></hgroup><article  id="thinking-fast-and-slow">
 
-</article></slide><slide class=""><hgroup><h2>Behavioral Economics</h2></hgroup><article  id="behavioral-economics">
+<div class="columns-2">
+<p><img src="kahneman.jpg" width="450px" /> <sub>Photo courtesy of Proximus.be</sub></p>
 
-<p>The <strong>Cognitive Reflection Test</strong> (<a href='https://doi.org/10.1257%2F089533005775196732' title=''>Frederick 2005</a>) was motivated by Tversky and Kahneman’s research that lead to a Nobel Prize in Economics. They identified how consumers do not act in their rational best interests because of cognitive biases.</p>
-
-<img src='kahneman.jpg' title='fig:'/><p class='caption'>Daniel Kahneman, Nobel Prize winner and best-selling author</p>
-
-<p>Photo courtesy of Proximus.be</p>
-
-<p>In Kahneman’s best-selling book <em>Thinking, Fast and Slow</em> he described our brain’s two systems of decision-making:</p>
+<p>Kahneman’s best-selling book described our brain’s two systems of decision-making:</p>
 
 <ul>
 <li><strong>System 1</strong> is fast and reflexive and particularly susceptible to our emotions and intuitions</li>
 <li><strong>System 2</strong> is slower, deliberate, and utilizes conscious calculations and reasoning</li>
-</ul>
+</ul></div>
 
-<p>The <strong>Cognitive Reflection Test</strong> is a proxy for how likely an individual is to inhibit System 1 and demonstrate <strong>Cognitive Reflection</strong> (using System 2). It is inversely correlated with:</p>
+</article></slide><slide class=""><hgroup><h2>Cognitive Reflection Test</h2></hgroup><article  id="cognitive-reflection-test">
+
+<p>(<a href='https://doi.org/10.1257%2F089533005775196732' title=''>Frederick 2005</a>) was motivated by Tversky and Kahneman’s <em>Nobel Prize in Economics</em>-winning research that identified how consumers do not act in their rational best interests because of cognitive biases.</p>
+
+<p>The <strong>Cognitive Reflection Test (CRT)</strong> is a proxy for how proficient an individual is at <em>inhibiting System 1</em> and demonstrating <strong>Cognitive Reflection</strong> (using System 2). CRT includes &ldquo;trick&rdquo; questions like:</p>
+
+<p><strong>&ldquo;A bat and a ball cost $1.10 in total. The bat costs $1.00 more than the ball. How much does the ball cost?&rdquo;</strong></p>
+
+</article></slide><slide class=""><hgroup><h2>Cognitive Reflection Test</h2></hgroup><article  id="cognitive-reflection-test-1">
+
+<p>In behavioral economics, CRT was found as inversely correlated with:</p>
 
 <ul>
 <li>Gambler’s fallacy</li>
@@ -149,104 +154,50 @@ slide:not(.current) .plotly.html-widget{
 
 <p><strong>In what ways might &ldquo;Cognitive Reflection&rdquo; play a role in software engineering?</strong></p>
 
+<p>Perhaps in verifying code?</p>
+
+<ul>
+<li>Code Review</li>
+<li>Testing</li>
+</ul>
+
 </article></slide><slide class=""><hgroup><h2>Inspecting Code</h2></hgroup><article  id="inspecting-code">
 
 <p>Does this function produce the described behavior?</p>
 
-<img src='isPalindrome.png' title='fig:'/><p class='caption'>isPalindrome function</p>
+<p><img src="isPalindrome.png" width="580px" /></p>
+
+</article></slide><slide class=""><hgroup><h2>Inspecting Code</h2></hgroup><article  id="inspecting-code-1">
 
 <p>Does this function produce the described behavior?</p>
 
-<img src='sortDescending.png' title='fig:'/><p class='caption'>sortDescending function</p>
+<p><img src="sortDescending.png" width="580px" /></p>
 
-</article></slide><slide class=""><hgroup><h2>Testing</h2></hgroup><article  id="testing">
+</article></slide><slide class=""><hgroup><h2>Unit Testing Exam</h2></hgroup><article  id="unit-testing-exam">
 
-<p><strong>Test outcomes vs. Implementation</strong></p>
+<ul>
+<li>Following a 3-week module on unit testing</li>
+<li>Exam to test and implement a class</li>
+<li>Class interface and specification provided</li>
+<li>Classified each implementation as <strong>acceptable</strong> or <strong>buggy</strong></li>
+<li>Ran each student’s tests against each implementation</li>
+<li>Analyzed test accuracy for each student</li>
+</ul>
 
-<table>
+<pre >Accuracy = 
+  (True Positives + True Negatives) /
+  (True Positives + True Negatives + False Positives + False Negatives)</pre>
 
-<thead>
+</article></slide><slide class=""><hgroup><h2>Unit Testing Exam - Accuracy</h2></hgroup><article  id="unit-testing-exam---accuracy">
 
-<tr class="header">
-
-<th style="text-align: right;">
-
-</th>
-
-<th style="text-align: right;">
-
-Fail
-
-</th>
-
-<th style="text-align: right;">
-
-Pass
-
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr class="odd">
-
-<td style="text-align: right;">
-
-Working
-
-</td>
-
-<td style="text-align: right;">
-
-🤨
-
-</td>
-
-<td style="text-align: right;">
-
-🙌
-
-</td>
-
-</tr>
-
-<tr class="even">
-
-<td style="text-align: right;">
-
-Buggy
-
-</td>
-
-<td style="text-align: right;">
-
-🧐
-
-</td>
-
-<td style="text-align: right;">
-
-🪳
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-<img src='accuracy-components.png' title='fig:'/><p class='caption'>Test accuracy</p>
+<p><img src="accuracy-components.png" width="900px" /></p>
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Results</h2></hgroup><article  id="results">
 
 </article></slide><slide class=""><hgroup><h2>CRT vs Inspection</h2></hgroup><article  id="crt-vs-inspection">
 
 <ul>
-<li>CRT was <strong>not a significant predictor</strong> (p=0.329) of students’ <strong>affirmation of acceptable code</strong>.</li>
+<li>CRT was <strong>not a significant predictor</strong> (p=0.329) of students’ (n=102) <strong>affirmation of acceptable code</strong>.</li>
 <li>CRT was a <strong>significant predictor</strong> of students rejecting defective code (p&lt;0.0001) with the log odds of <strong>correctly rejecting the defective code</strong> increasing by 2.94 (95% CI 1.56-4.50).
 
 <ul>
@@ -265,13 +216,41 @@ Buggy
 </ul></li>
 </ul>
 
+</article></slide><slide class=""><hgroup><h2>Threats to Validity</h2></hgroup><article  id="threats-to-validity">
+
+<ul>
+<li>Potential previous exposure to CRT</li>
+<li>Was the phenomenon particular to the coding problems given?</li>
+</ul>
+
+<p><strong>Replication Study</strong></p>
+
+<ul>
+<li>Replaced CRT with similar (but newer, less common) variants (Thomson &amp; Oppenheimer 2016) and (Primi 2016)</li>
+<li>Adopted new Unit Testing Exam and new code inspection question</li>
+<li>Studied students (n=38) in following term</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Replication Results</h2></hgroup><article  id="replication-results">
+
+<ul>
+<li><strong>Significant, positive correlation</strong> between alternate-CRT and <strong>manual verification</strong> (ρ=0.478, p&lt;0.01)
+
+<ul>
+<li><strong>Significant regression</strong> equation for <strong>predicting rejection of buggy implementation</strong>: <code>-0.3138 + 1.0239 x alt-CRT score</code> (F(1,36)=9.106,p&lt;.01), with an R^2 of 0.1797</li>
+<li>Not a significant predictor of affirmation alone (p=0.729).</li>
+</ul></li>
+<li><em>No correlation</em> between alternate-CRT and <em>test accuracy</em> (ρ=0.113, p=0.498).</li>
+</ul>
+
 </article></slide><slide class=""><hgroup><h2>Conclusions</h2></hgroup><article  id="conclusions">
 
-<p><strong>How would you interpret the results?</strong></p>
+<ul>
+<li>Cognitive Reflection has a <strong>moderately positive correlation with manually identifying bugs in code</strong></li>
+<li>Cognitive Reflection <em>not associated with unit testing accuracy</em></li>
+</ul>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Full Paper</h2></hgroup><article  id="full-paper">
-
-<p>The full paper will be available soon.</p></article></slide>
+<p><strong>How would you interpret the results?</strong></p></article></slide>
 
 
   <slide class="backdrop"></slide>
