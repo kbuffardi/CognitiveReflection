@@ -1,14 +1,15 @@
 ---
-title: 'Cognitive Reflection in Software Verification and Testing'
+title: "Cognitive Reflection in Software Verification and Testing"
 author: "Kevin Buffardi"
 date: "May 17, 2023"
 output:
   ioslides_presentation:
     fig_width: 16
     fig_height: 9
-    widescreen: true
-    self_contained: false
-always_allow_html: true
+    widescreen: yes
+    self_contained: no
+  beamer_presentation: default
+always_allow_html: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -153,3 +154,22 @@ Accuracy =
 - Cognitive Reflection *not associated with unit testing accuracy*
 
 **How would you interpret the results?**
+
+## Full Paper
+
+The full paper is available online via [IEEE Xplore](https://doi.org/10.1109/icse-seet58685.2023.00006)
+
+To cite this paper, use the following reference in your bibliography:
+
+> K. Buffardi, "Cognitive Reflection in Software Verification and Testing," 2023 IEEE/ACM 45th International Conference on Software Engineering: Software Engineering Education and Training (ICSE-SEET), Melbourne, Australia, 2023, pp. 1-10, doi: 10.1109/ICSE-SEET58685.2023.00006.
+
+Or import the following *BibTeX* reference:
+
+```
+@INPROCEEDINGS{buffardi2023cognitive, author={Buffardi, Kevin},
+  booktitle={2023 IEEE/ACM 45th International Conference on 
+  Software Engineering: Software Engineering Education and Training 
+  (ICSE-SEET)}, 
+  title={Cognitive Reflection in Software Verification and Testing}, 
+  year={2023}, pages={1-10}, doi={10.1109/ICSE-SEET58685.2023.00006}}
+```
